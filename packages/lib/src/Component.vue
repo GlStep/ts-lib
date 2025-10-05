@@ -14,7 +14,9 @@ export default defineComponent({
 <template>
   <h1>This is your component!</h1>
   <div>
-    <p data-test-message>{{ message }} !!</p>
+    <p data-test-message>
+      {{ message }} !!
+    </p>
   </div>
 </template>
 

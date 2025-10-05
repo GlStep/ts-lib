@@ -41,9 +41,6 @@ importers:
       lint-staged:
         specifier: ^16.2.3
         version: 16.2.3
-      prettier:
-        specifier: ^3.6.2
-        version: 3.6.2
       run-p:
         specifier: ^0.0.0
         version: 0.0.0
@@ -65,7 +62,7 @@ importers:
 
   packages/docs:
     dependencies:
-      '@linusborg/lib':
+      '@glstep/lib':
         specifier: workspace:*
         version: link:../lib
     devDependencies:
@@ -75,7 +72,7 @@ importers:
 
   packages/lib:
     dependencies:
-      '@linusborg/lib':
+      '@glstep/lib':
         specifier: workspace:*
         version: 'link:'
       vue:
@@ -91,7 +88,7 @@ importers:
 
   packages/playground:
     dependencies:
-      '@linusborg/lib':
+      '@glstep/lib':
         specifier: workspace:*
         version: link:../lib
       vue:

@@ -1,11 +1,11 @@
 module.exports = {
-  title: 'VueMonoRepoLib', //TODO: CHANGE_ME
+  title: 'VueMonoRepoLib', // TODO: CHANGE_ME
   description: 'Replace this descriptions with something nice!',
   themeConfig: {
     editLink: {
-      //TODO: CHANGE_ME
+      // TODO: CHANGE_ME
       pattern: 'https://github.com/linusborg/vue-lib-monorepo-template/edit/main/docs/:path',
-      text: 'Edit this page on GitHub' 
+      text: 'Edit this page on GitHub',
     },
     lastUpdated: 'Last Updated',
     nav: [

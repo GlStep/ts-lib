@@ -4,8 +4,8 @@
   "private": true,
   "description": "Docs for this lib.",
   "author": "Thorsten Luenborg <t.luneborg@googlemail.com>",
-  "homepage": "",
   "license": "MIT",
+  "homepage": "",
   "main": "index.ts",
   "directories": {
     "lib": "lib",
@@ -20,7 +20,7 @@
     "lint": "eslint '.vitepress/**/*.{ts,vue}'"
   },
   "dependencies": {
-    "@linusborg/lib": "workspace:*"
+    "@glstep/lib": "workspace:*"
   },
   "devDependencies": {
     "vitepress": "1.0.0-rc.25"

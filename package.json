@@ -5,7 +5,7 @@
   "private": true,
   "packageManager": "pnpm@10.18.0",
   "description": "A monorepo template for developing Vue libraries",
-  "author": "Thorsten Lünborg <thorsten@linusb.org>",
+  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
   "workspaces": [
     "packages/*"
@@ -18,13 +18,14 @@
     "dev": "pnpm -F playground dev",
     "test": "pnpm --if-present -r run test",
     "test-ci": "pnpm --if-present -r run test-ci",
-    "test-libs": "pnpm -F '@linusborg/*' run test",
+    "test-libs": "pnpm -F '@glstep/*' run test",
     "docs": "pnpm -F docs run dev",
     "docs-build": "pnpm -F docs run build",
-    "lint": "pnpm eslint '**/*.{vue,ts,js}' --fix",
+    "lint": "pnpm eslint .",
+    "lint:fix": "pnpm eslint . --fix",
     "build": "pnpm build-packages && pnpm build-playground && pnpm build-docs",
-    "build-packages": "pnpm -r -F '@package/*' run build",
-    "build-playground": "pnpm --F 'playground' run build",
+    "build-packages": "pnpm -r -F '@glstep/*' run build",
+    "build-playground": "pnpm -F 'playground' run build",
     "build-docs": "pnpm -F 'docs' run build"
   },
   "devDependencies": {
@@ -39,7 +40,6 @@
     "eslint-plugin-format": "^1.0.1",
     "jsdom": "^27.0.0",
     "lint-staged": "^16.2.3",
-    "prettier": "^3.6.2",
     "run-p": "^0.0.0",
     "typescript": "^5.9.0",
     "vite": "^7.1.0",

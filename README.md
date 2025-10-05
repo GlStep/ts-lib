@@ -14,16 +14,16 @@ As such, it is pretty opinionated, and probably does some things in way you don'
 
 ## Features
 
-* ✅ Full Typescript support for the whole dev workflow
-* ⚡️  Ergonomic and easy workflow completely powered by Vite & PNPM:
-  * 🎯 Build your libraries with [Vite](https://github.com/vitejs/vite)
-  * ⛱️ Typechecking & Generating declaration files with `vue-tsc`(https://github.com/johnsoncodehk/volar/tree/master/vue-language-tools/vue-tsc)
-  * 🏈 Integrated playground app powered by [Vite](https://github.com/vitejs/vite) as well
-* 💊 Unit Tests with [Vitest](https://www.vitest.dev)
-* 🖍 Linting with `eslint` and `prettier`
-  * [PLANNED] linting & fixing for staged files (`lint-staged`)
-* 📚 Documentation powered by [Vitepress](https://vitepress.vuejs.org)
-  * Ready to be deployed to [Netlify](https://www.netlify.com)
+- ✅ Full Typescript support for the whole dev workflow
+- ⚡️ Ergonomic and easy workflow completely powered by Vite & PNPM:
+  - 🎯 Build your libraries with [Vite](https://github.com/vitejs/vite)
+  - ⛱️ Typechecking & Generating declaration files with `vue-tsc`(https://github.com/johnsoncodehk/volar/tree/master/vue-language-tools/vue-tsc)
+  - 🏈 Integrated playground app powered by [Vite](https://github.com/vitejs/vite) as well
+- 💊 Unit Tests with [Vitest](https://www.vitest.dev)
+- 🖍 Linting with `eslint` and `prettier`
+  - [PLANNED] linting & fixing for staged files (`lint-staged`)
+- 📚 Documentation powered by [Vitepress](https://vitepress.vuejs.org)
+  - Ready to be deployed to [Netlify](https://www.netlify.com)
 
 ## Documentation, FAQ and Troubleshooting
 
@@ -42,9 +42,10 @@ We use pnpm to run commands in individual workspaces as needed.
 ### build
 
 Build everything: library packages, docs and playground app
+
 ### `pnpm dev`
 
-starts the `Vite` dev server for the playground app for testing playing around with your libraries manually. 
+starts the `Vite` dev server for the playground app for testing playing around with your libraries manually.
 
 During `play`, no bundling has to be done as all of the library package's code is compiled JIT in the playground app.
 

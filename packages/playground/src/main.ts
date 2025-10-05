@@ -1,4 +1,3 @@
-import { install as MyLibPLugin } from '@glstep/lib'
 import { createApp } from 'vue'
 import App from './App.vue'
 import './index.css'
