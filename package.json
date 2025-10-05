@@ -1,59 +1,61 @@
 {
-	"name": "vue-lib-monorepo-template",
-	"version": "0.1.0",
-	"description": "A monorepo template for developing Vue libraries",
-	"author": "Thorsten Lünborg <thorsten@linusb.org>",
-	"license": "MIT",
-	"private": true,
-	"type": "module",
-	"workspaces": [
-		"packages/*"
-	],
-	"scripts": {
-		"dev": "pnpm -F playground dev",
-		"test": "pnpm --if-present -r run test",
-		"test-ci": "pnpm --if-present -r run test-ci",
-		"test-libs": "pnpm -F '@linusborg/*' run test",
-		"docs": "pnpm -F docs run dev",
-		"docs-build": "pnpm -F docs run build",
-		"lint": "pnpm eslint '**/*.{vue,ts,js}' --fix",
-		"build": "pnpm build-packages && pnpm build-playground && pnpm build-docs",
-		"build-packages": "pnpm -r -F '@linusborg/*' run build",
-		"build-playground": "pnpm --F 'playground' run build",
-		"build-docs": "pnpm -F 'docs' run build"
-	},
-	"packageManager": "pnpm@10.18.0",
-	"devDependencies": {
-		"@tsconfig/node24": "^24.0.1",
-		"@types/node": "24.6.2",
-		"@vitejs/plugin-vue": "^6.0.1",
-		"@vue/compiler-dom": "^3.5.22",
-		"@vue/test-utils": "^2.4.6",
-		"@vue/tsconfig": "^0.8.1",
-		"eslint": "^9.36.0",
-		"jsdom": "^27.0.0",
-		"lint-staged": "^16.2.3",
-		"prettier": "^3.6.2",
-		"run-p": "^0.0.0",
-		"typescript": "^5.9.0",
-		"vite": "^7.1.0",
-		"vitest": "^3.2.4",
-		"vue": "^3.5.0",
-		"vue-tsc": "^3.0.0"
-	},
-	"engines": {
-		"node": ">=24.7.0",
-		"pnpm": ">=10.16.1"
-	},
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"@algolia/client-search"
-			]
-		},
-		"onlyBuiltDependencies": [
-			"esbuild",
-			"vue-demi"
-		]
-	}
+  "name": "vue-lib-monorepo-template",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.18.0",
+  "description": "A monorepo template for developing Vue libraries",
+  "author": "Thorsten Lünborg <thorsten@linusb.org>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.7.0",
+    "pnpm": ">=10.16.1"
+  },
+  "scripts": {
+    "dev": "pnpm -F playground dev",
+    "test": "pnpm --if-present -r run test",
+    "test-ci": "pnpm --if-present -r run test-ci",
+    "test-libs": "pnpm -F '@linusborg/*' run test",
+    "docs": "pnpm -F docs run dev",
+    "docs-build": "pnpm -F docs run build",
+    "lint": "pnpm eslint '**/*.{vue,ts,js}' --fix",
+    "build": "pnpm build-packages && pnpm build-playground && pnpm build-docs",
+    "build-packages": "pnpm -r -F '@package/*' run build",
+    "build-playground": "pnpm --F 'playground' run build",
+    "build-docs": "pnpm -F 'docs' run build"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.4.1",
+    "@tsconfig/node24": "^24.0.1",
+    "@types/node": "24.6.2",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/compiler-dom": "^3.5.22",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.36.0",
+    "eslint-plugin-format": "^1.0.1",
+    "jsdom": "^27.0.0",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.6.2",
+    "run-p": "^0.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.0",
+    "vue-tsc": "^3.0.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "vue-demi"
+    ]
+  }
 }

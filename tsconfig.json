@@ -1,5 +1,16 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "incremental": true,
+    "composite": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
   "references": [
     {
       "path": "./tsconfig.config.json"
@@ -19,5 +30,6 @@
     {
       "path": "./packages/playground/tsconfig.app.json"
     }
-  ]
+  ],
+  "files": []
 }
