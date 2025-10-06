@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "private": false,
-  "description": "CHANGE_ME This is a placeholder description, please change me as well as the name above me.",
-  "author": "CHANGE_ME Thorsten Lünborg <t.luneborg@googlemail.com>",
+  "description": "This is a placeholder description, please change me as well as the name above me.",
+  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
   "homepage": "",
   "exports": {

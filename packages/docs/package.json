@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Docs for this lib.",
-  "author": "Thorsten Luenborg <t.luneborg@googlemail.com>",
+  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
   "homepage": "",
   "main": "index.ts",

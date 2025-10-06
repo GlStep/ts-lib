@@ -7,9 +7,6 @@
   "description": "A monorepo template for developing Vue libraries",
   "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "engines": {
     "node": ">=24.7.0",
     "pnpm": ">=10.16.1"
@@ -24,9 +21,9 @@
     "lint": "pnpm eslint .",
     "lint:fix": "pnpm eslint . --fix",
     "build": "pnpm build-packages && pnpm build-playground && pnpm build-docs",
-    "build-packages": "pnpm -r -F '@glstep/*' run build",
-    "build-playground": "pnpm -F 'playground' run build",
-    "build-docs": "pnpm -F 'docs' run build"
+    "build-packages": "pnpm -F @glstep/lib run build",
+    "build-playground": "pnpm -F playground run build",
+    "build-docs": "pnpm -F docs run build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.4.1",
