@@ -1,17 +1,14 @@
+import process from 'node:process'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
-process.env.NODE_ENV
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
       // we alias to the lib's source files in dev
       // so we don't need to rebuild the lib over and over again
-      '@glstep/lib':
-				process.env.NODE_ENV === 'production'
-				  ? '@glstep/lib'
-				  : '@glstep/lib/src/index.ts',
+      '@glstep/lib': process.env.NODE_ENV === 'production' ? '@glstep/lib' : '@glstep/lib/src/index.ts',
     },
     dedupe: ['vue'],
   },

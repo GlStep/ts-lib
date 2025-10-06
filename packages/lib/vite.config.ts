@@ -8,10 +8,10 @@ export default defineConfig({
   resolve: {
     alias: {
       /*
-			 * We recommend to not use aliases in the lib's source,
-			 * because they will leak into the generated d.ts files and then
-			 * break the lib's types in the consuming app.
-			 */
+       * We recommend to not use aliases in the lib's source,
+       * because they will leak into the generated d.ts files and then
+       * break the lib's types in the consuming app.
+       */
     },
   },
   build: {
