@@ -1,6 +1,6 @@
-# Vue Library-Monorepo Template
+# Vue Component/Library-Monorepo Template
 
-> My personal repo template for developing Vue 3 libraries in a monorepo powered by pnpm workspaces
+> Repository template for developing Vue 3 libraries in a monorepo powered by pnpm workspaces, heavily inspired by [LinusBorg/vue-lib-template](https://github.com/LinusBorg/vue-lib-template) created by [LinusBorg](https://github.com/LinusBorg) with a few additions and other spices
 
 **STATE**: Still working on this here and ther, but it's working fine, usually ☺️
 
