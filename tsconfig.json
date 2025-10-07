@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
-    "incremental": true,
     "composite": true,
-    "resolveJsonModule": true,
     "strict": true,
     "declaration": true,
     "declarationMap": true,
@@ -25,6 +23,13 @@
     },
     {
       "path": "./packages/lib/tsconfig.vitest.json"
+    },
+    // Lib TS
+    {
+      "path": "./packages/lib-ts/tsconfig.app.json"
+    },
+    {
+      "path": "./packages/lib-ts/tsconfig.vitest.json"
     },
     // Playground
     {
