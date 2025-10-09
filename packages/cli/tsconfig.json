@@ -1,16 +1,16 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "composite": true,
     "target": "ES2022",
     "rootDir": "src",
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": false,
+    "strict": true,
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": false,
-    "outDir": "dist"
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]
