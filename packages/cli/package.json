@@ -1,0 +1,15 @@
+{
+  "name": "@glstep/create-app",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "CLI tool to scaffold Vue/TS library projects",
+  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
+  "license": "MIT",
+  "bin": "./bin/create-app.js",
+  "files": ["bin", "dist", "templates"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "dev": "tsup src/index.ts --format esm --watch",
+    "typecheck": "tsc --noEmit"
+  }
+}
