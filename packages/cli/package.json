@@ -1,15 +1,31 @@
 {
-  "name": "@glstep/create-app",
+  "name": "@glstep/vue-ts-app-lib",
   "type": "module",
   "version": "0.1.0",
   "description": "CLI tool to scaffold Vue/TS library projects",
   "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
-  "bin": "./bin/create-app.js",
-  "files": ["bin", "dist", "templates"],
+  "bin": {
+    "create-app": "./bin/create-app.mjs"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "templates"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
     "dev": "tsup src/index.ts --format esm --watch",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.4"
   }
 }
