@@ -1,4 +1,5 @@
-import chalk from 'chalk'
+import process from 'node:process'
+import pc from 'picocolors'
 import prompts from 'prompts'
 
 export interface ProjectOptions {
@@ -13,7 +14,7 @@ export interface ProjectOptions {
 }
 
 export async function promptProjectOptions(targetDir: string): Promise<ProjectOptions | null> {
-  console.log(`\n${chalk.bold.cyan('Create a Vue/TS Library project')}\n`)
+  console.log(`\n${pc.bold(pc.cyan('Create a Vue/TS Library project'))}\n`)
 
   const response = await prompts(
     [
@@ -54,32 +55,51 @@ export async function promptProjectOptions(targetDir: string): Promise<ProjectOp
             selected: false,
           },
           {
-            title: `Playground (Vue 3 + Vite) ${chalk.bold('(recommended)')}`,
+            title: `Playground (Vue 3 + Vite) ${pc.bold('(recommended)')}`,
             value: 'playground',
             selected: true,
+          },
+          {
+            title: 'Documentation (VitePress)',
+            value: 'docs',
+            selected: false,
           },
         ],
         min: 1,
         hint: '- Space to select. Return to submit',
         instructions: false,
       },
+      {
+        type: 'confirm',
+        name: 'installDeps',
+        message: 'Install dependencies after the project is created?',
+        initial: true,
+      },
     ],
+    {
+      onCancel: () => {
+        console.log(`${pc.red('\n✖')} Operation cancelled.`)
+        process.exit(0)
+      },
+    },
   )
 
   if (!response.projectName) {
     return null
   }
 
-  const packages: string[] = response.packages || []
+  const packages: string[] = response.packages ?? []
 
-  return {
+  const options: ProjectOptions = {
     projectName: response.projectName,
     packageName: response.packageName,
     scope: response.scope,
     includeLib: packages.includes('lib'),
     includeLibTs: packages.includes('libTs'),
     includePlayground: packages.includes('playground'),
-    includeDocs: true,
-    installDeps: true,
+    includeDocs: packages.includes('docs'),
+    installDeps: response.installDeps,
   }
+
+  return options
 }
