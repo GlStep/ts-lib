@@ -17,15 +17,21 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
     "dev": "tsup src/index.ts --format esm --watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test-run": "vitest run",
+    "test-unit": "vitest run src",
+    "test-e2e": "vitest run tests/e2e"
   },
   "dependencies": {
+    "execa": "^9.6.0",
     "fast-glob": "^3.3.3",
     "ora": "^9.0.0",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
+    "@types/node": "^24.6.2",
     "@types/prompts": "^2.4.9",
     "tsup": "^8.5.0",
     "typescript": "^5.9.0",
