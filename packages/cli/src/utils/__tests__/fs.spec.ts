@@ -2,7 +2,7 @@ import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'no
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { copyDir, ensureDir, isDirEmpty } from '../fs'
+import { copyDir, ensureDir, isDirEmpty, readJson, writeJson } from '../fs'
 
 describe('fs utilities', () => {
   let tempDir: string
@@ -105,6 +105,91 @@ describe('fs utilities', () => {
       expect(existsSync(join(destDir, 'file2.txt'))).toBe(true)
       expect(readFileSync(join(destDir, 'file1.txt'), 'utf8')).toBe('File 1')
       expect(readFileSync(join(destDir, 'file2.txt'), 'utf8')).toBe('File 2')
+    })
+
+    it('should copy dir with nested structure', async () => {
+      const srcDir = join(tempDir, 'src-nested')
+      await ensureDir(join(srcDir, 'level1', 'level2'))
+      writeFileSync(join(srcDir, 'level1', 'level2', 'file.txt'), 'Nested File', { encoding: 'utf8', flag: 'wx' })
+      writeFileSync(join(srcDir, 'level1', 'file.txt'), 'Another nested File', { encoding: 'utf8', flag: 'wx' })
+      writeFileSync(join(srcDir, 'file.txt'), 'Root File', { encoding: 'utf8', flag: 'wx' })
+
+      const destDir = join(tempDir, 'dest-nested')
+      await copyDir(srcDir, destDir)
+
+      expect(existsSync(join(destDir, 'file.txt'))).toBe(true)
+      expect(readFileSync(join(destDir, 'file.txt'), 'utf8')).toBe('Root File')
+
+      expect(existsSync(join(destDir, 'level1', 'file.txt'))).toBe(true)
+      expect(readFileSync(join(destDir, 'level1', 'file.txt'), 'utf8')).toBe('Another nested File')
+
+      expect(existsSync(join(destDir, 'level1', 'level2', 'file.txt'))).toBe(true)
+      expect(readFileSync(join(destDir, 'level1', 'level2', 'file.txt'), 'utf8')).toBe('Nested File')
+    })
+  })
+
+  describe('readJson', async () => {
+    it('should read and parse JSON file', async () => {
+      const jsonFile = join(tempDir, 'data.json')
+      const jsonData = {
+        'name': 'Test',
+        'value': 42,
+        'nested': { a: 1, b: [1, 2, 3] },
+        'array': [10, 20, 30],
+        'arrayObject': [{ x: 1 }, { y: 2 }],
+        'bool': true,
+        'nullValue': null,
+        'string-test': 'value',
+      }
+      writeFileSync(jsonFile, JSON.stringify(jsonData, null, 2), { encoding: 'utf8', flag: 'wx' })
+
+      const result = await readJson(jsonFile)
+      expect(result).toEqual(jsonData)
+      expect(result.name).toEqual(jsonData.name)
+      expect(result['string-test']).toEqual(jsonData['string-test'])
+    })
+
+    it('should throw error for invalid JSON', async () => {
+      const invalidJsonFile = join(tempDir, 'invalid.json')
+      writeFileSync(invalidJsonFile, '{ invalid json ', { encoding: 'utf8', flag: 'wx' })
+
+      const result = readJson(invalidJsonFile)
+      await expect(result).rejects.toThrow(SyntaxError)
+    })
+  })
+
+  describe('writeJson', async () => {
+    it('should write JSON object to file', async () => {
+      const jsonFile = join(tempDir, 'output.json')
+      const jsonData = {
+        title: 'Output Test',
+        count: 100,
+        items: ['a', 'b', 'c'],
+        details: { key: 'value' },
+        isActive: false,
+        nullField: null,
+      }
+
+      await writeJson(jsonFile, jsonData)
+
+      expect(existsSync(jsonFile)).toBe(true)
+      const fileContent = readFileSync(jsonFile, { encoding: 'utf8' })
+      const parsedContent = JSON.parse(fileContent)
+      expect(parsedContent).toEqual(jsonData)
+      expect(fileContent.endsWith('\n')).toBe(true)
+    })
+
+    it('should overwrite existing file', async () => {
+      const jsonFile = join(tempDir, 'overwrite.json')
+      const initialData = { initial: true }
+      writeFileSync(jsonFile, JSON.stringify(initialData), { encoding: 'utf8', flag: 'wx' })
+
+      const newData = { updated: true, number: 123 }
+      await writeJson(jsonFile, newData)
+
+      const fileContent = readFileSync(jsonFile, { encoding: 'utf8' })
+      const parsedContent = JSON.parse(fileContent)
+      expect(parsedContent).toEqual(newData)
     })
   })
 })
