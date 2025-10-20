@@ -44,7 +44,7 @@
     "dev": "tsup src/index.ts --format esm --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "test-run": "vitest run",
+    "test:run": "vitest run",
     "test-unit": "vitest run src",
     "test-e2e": "vitest run tests/e2e",
     "prepublishOnly": "pnpm test:run && pnpm build"
