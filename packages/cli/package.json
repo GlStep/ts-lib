@@ -1,7 +1,7 @@
 {
   "name": "@glstep/create-ts-lib",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI tool to scaffold Vue/TS library projects",
   "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
