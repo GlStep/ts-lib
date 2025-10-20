@@ -1,19 +1,44 @@
 {
-  "name": "@glstep/vue-ts-app-lib",
+  "name": "@glstep/create-ts-lib",
   "type": "module",
   "version": "0.1.0",
   "description": "CLI tool to scaffold Vue/TS library projects",
   "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",
+  "homepage": "https://github.com/glstep/ts-lib#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glstep/ts-lib.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/glstep/ts-lib/issues"
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "cli",
+    "scaffold",
+    "monorepo",
+    "library",
+    "vite",
+    "component-library"
+  ],
   "bin": {
-    "create-app": "./bin/create-app.mjs"
+    "create-ts-lib": "./bin/create-app.mjs"
   },
   "files": [
+    "LICENSE",
+    "README.md",
     "bin",
     "dist",
     "src",
     "templates"
   ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
     "dev": "tsup src/index.ts --format esm --watch",
@@ -21,9 +46,11 @@
     "test": "vitest",
     "test-run": "vitest run",
     "test-unit": "vitest run src",
-    "test-e2e": "vitest run tests/e2e"
+    "test-e2e": "vitest run tests/e2e",
+    "prepublishOnly": "pnpm test:run && pnpm build"
   },
   "dependencies": {
+    "commander": "^14.0.1",
     "execa": "^9.6.0",
     "fast-glob": "^3.3.3",
     "ora": "^9.0.0",
@@ -36,5 +63,8 @@
     "tsup": "^8.5.0",
     "typescript": "^5.9.0",
     "vitest": "^3.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

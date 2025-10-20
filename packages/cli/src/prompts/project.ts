@@ -5,7 +5,8 @@ import prompts from 'prompts'
 export interface ProjectOptions {
   projectName: string
   packageName: string
-  scope: string
+  author?: string
+  scope?: string
   includeLib: boolean
   includeLibTs: boolean
   includePlayground: boolean
@@ -38,6 +39,13 @@ export async function promptProjectOptions(targetDir: string): Promise<ProjectOp
         message: 'Package name (npm package name): ',
         initial: 'lib',
         validate: (value: string) => value.trim() ? true : 'Package name cannot be empty',
+      },
+      {
+        type: 'text',
+        name: 'author',
+        message: 'Author name (optional): ',
+        initial: 'Your Name',
+        format: (value: string) => value.trim(),
       },
       {
         type: 'multiselect',

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Docs for this lib.",
-  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
+  "author": "AUTHOR_NAME <AUTHOR_EMAIL>",
   "license": "MIT",
   "homepage": "",
   "main": "index.ts",
@@ -20,7 +20,6 @@
     "lint": "eslint '.vitepress/**/*.{ts,vue}'"
   },
   "dependencies": {
-    "@glstep/lib": "workspace:*"
   },
   "devDependencies": {
     "vitepress": "1.0.0-rc.25"

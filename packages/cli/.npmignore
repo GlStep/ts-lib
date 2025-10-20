@@ -1,0 +1,17 @@
+# Tests
+**/__tests__/
+*.spec.ts
+tests/
+
+# Development files
+*.log
+.DS_Store
+node_modules/
+testing/
+.vscode/
+.idea/
+
+# Only include built files
+!dist/
+!templates/
+!bin/
