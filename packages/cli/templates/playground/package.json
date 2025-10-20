@@ -9,7 +9,6 @@
     "lint": "eslint 'src/**/*.{ts,vue}'"
   },
   "dependencies": {
-    "@glstep/lib": "workspace:*",
     "vue": "^3.3.8"
   },
   "devDependencies": {

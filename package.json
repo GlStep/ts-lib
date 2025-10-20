@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.18.0",
+  "packageManager": "pnpm@10.18.1",
   "description": "A monorepo template for developing Vue libraries",
   "author": "Gleb Stepanov <gleb.stepanov@online.de>",
   "license": "MIT",

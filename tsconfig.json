@@ -35,6 +35,7 @@
     {
       "path": "./packages/playground/tsconfig.app.json"
     }
+    // CLI
   ],
   "files": []
 }

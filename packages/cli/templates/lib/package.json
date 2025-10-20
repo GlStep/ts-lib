@@ -1,10 +1,10 @@
 {
-  "name": "@glstep/lib",
+  "name": "@SCOPE/lib",
   "type": "module",
   "version": "0.0.1",
   "private": false,
   "description": "This is a placeholder description, please change me as well as the name above me.",
-  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
+  "author": "AUTHOR_NAME <AUTHOR_EMAIL>",
   "license": "MIT",
   "homepage": "",
   "exports": {
