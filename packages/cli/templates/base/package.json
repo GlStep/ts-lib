@@ -1,0 +1,20 @@
+{
+  "name": "PROJECT_NAME",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.18.1",
+  "description": "A monorepo for TypeScript libraries",
+  "author": "AUTHOR_NAME <AUTHOR_EMAIL>",
+  "license": "MIT",
+  "engines": {
+    "pnpm": ">=10.16.1"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r --parallel run dev",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "type-check": "pnpm -r run type-check"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@glstep/lib-ts",
+  "type": "module",
+  "version": "0.0.1",
+  "private": false,
+  "description": "This is a placeholder description for a small TypeScript utility library, please change me as well as the name above me.",
+  "author": "Gleb Stepanov <gleb.stepanov@online.de>",
+  "license": "MIT",
+  "homepage": "",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "typings": "types/index.d.ts",
+  "files": [
+    "README.md",
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "lint": "eslint 'src/**/*.{ts}'",
+    "test": "vitest",
+    "test-ci": "vitest --run"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "tsup": "^6.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^0.34.6"
+  }
+}
